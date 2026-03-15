@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dave IT Guy — Neuro Gaming Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --bg-elevated: #14171f;
+      --text: #e2e6ef;
+      --text-muted: #8b92a8;
+      --accent: #00d4aa;
+      --accent-dim: #00a884;
+      --border: #252a36;
+      --pill-bg: #1a1e28;
+      --code-bg: #0f1218;
+      --link: #00d4aa;
+      --link-hover: #00f0c0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* Header */
+    header {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    header a:hover {
+      color: var(--accent);
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .sep {
+      color: var(--border);
+      margin: 0 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin: 0 0 1.5rem;
+      font-weight: 300;
+    }
+
+    .hero .lead {
+      font-size: 1rem;
+      color: var(--text);
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
+    }
+
+    /* Pills */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-muted);
+    }
+
+    .pill.accent {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    /* Paragraph block */
+    .intro {
+      margin: 2rem 0 2.5rem;
+    }
+
+    .intro p {
+      margin: 0 0 1rem;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CTAs */
+    .ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--link-hover);
+      border-color: var(--link-hover);
+      color: var(--bg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      margin: 2.5rem 0;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .features li {
+      padding: 0.5rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .features li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-dim);
+      font-weight: 600;
+    }
+
+    .features li strong {
+      color: var(--text);
+    }
+
+    /* Code block */
+    .code-block {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      color: var(--text);
+    }
+
+    .code-block .comment {
+      color: var(--text-muted);
+    }
+
+    .code-block .cmd {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    footer .credit {
+      margin: 0.5rem 0 0;
+    }
+
+    .closing {
+      margin-top: 2rem;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="https://neurogaminglab.github.io/Neuro-Gaming-Lab/">Neuro Gaming Lab</a>
+      <span class="sep">·</span>
+      <span class="brand">Dave IT Guy</span>
+    </header>
+
+    <div class="hero">
+      <h1>Dave IT Guy</h1>
+      <p class="tagline">Deploy AI-Assistant stacks with one command.</p>
+      <p class="lead">
+        One command spins up OpenClaw with Ollama and Qdrant—fully containerized. No host installs, no config archaeology. Run locally or ship to the cloud. Same stack, anywhere.
+      </p>
+      <div class="pills">
+        <span class="pill accent">AI-Assistant</span>
+        <span class="pill accent">Docker-Containerization</span>
+        <span class="pill accent">OpenClaw</span>
+        <span class="pill accent">Ollama</span>
+        <span class="pill accent">Qdrant</span>
+        <span class="pill accent">Anthropic-LLM</span>
+        <span class="pill accent">OpenAI-LLM</span>
+        <span class="pill accent">Rag-Retrieval</span>
+      </div>
+    </div>
+
+    <div class="intro">
+      <p>
+        One command spins up <strong>OpenClaw</strong> with <strong>Ollama</strong> and <strong>Qdrant</strong>—fully containerized. No host installs, no config archaeology. Run locally or ship to the cloud. Same stack, anywhere.
+      </p>
+      <p>
+        Set your Anthropic API key when prompted (or add it later); Ollama is the fallback for local-only use. Everything runs in Docker. Nothing on your host.
+      </p>
+    </div>
+
+    <div class="ctas">
+      <a href="https://pypi.org/project/dave-it-guy/" class="btn btn-primary">Install from PyPI →</a>
+      <a href="https://github.com/NeuroGamingLab/dave-it-guy" class="btn btn-secondary">View on GitHub →</a>
+    </div>
+
+    <section>
+      <h2>Quick Start</h2>
+      <div class="code-block">
+        <span class="cmd">pip install dave-it-guy</span><br />
+        <span class="cmd">dave-it-guy deploy openclaw</span><br />
+        <span class="comment"># Then open the AI assistant:</span><br />
+        <span class="cmd">docker exec -it dave-it-guy-openclaw openclaw tui</span>
+      </div>
+      <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+        <strong>Gateway:</strong> <a href="http://localhost:18789" style="color: var(--link);">http://localhost:18789</a> · <strong>Qdrant:</strong> <a href="http://localhost:6333" style="color: var(--link);">http://localhost:6333</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>What You Get</h2>
+      <ul class="features">
+        <li><strong>OpenClaw</strong> — AI agent gateway and TUI</li>
+        <li><strong>Ollama</strong> — local LLMs (Llama, Mistral, etc.)</li>
+        <li><strong>Qdrant</strong> — vector memory</li>
+      </ul>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0.5rem 0 0;">Everything runs in Docker. Nothing on your host.</p>
+    </section>
+
+    <section>
+      <h2>Commands</h2>
+      <div class="code-block">
+        <span class="cmd">dave-it-guy list</span>              <span class="comment"># Available stacks</span><br />
+        <span class="cmd">dave-it-guy deploy openclaw</span>   <span class="comment"># Deploy</span><br />
+        <span class="cmd">dave-it-guy status openclaw</span>   <span class="comment"># Status</span><br />
+        <span class="cmd">dave-it-guy logs openclaw</span>     <span class="comment"># Logs</span><br />
+        <span class="cmd">dave-it-guy doctor</span>            <span class="comment"># Diagnose issues</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pricing</h2>
+      <p style="margin: 0; color: var(--text);">
+        <strong>Free</strong> — Local stacks. <strong>Pro</strong> — Cloud (Terraform), priority support.
+      </p>
+    </section>
+
+    <footer>
+      <p><a href="https://github.com/NeuroGamingLab">NeuroGamingLab</a> · MIT License</p>
+      <p class="credit">
+        <a href="https://neurogaminglab.github.io/Neuro-Gaming-Lab/">Neuro Gaming Lab</a> · Project 2026
+      </p>
+      <p class="closing">Deploy AI stacks with one command. Same stack, anywhere.</p>
+    </footer>
+  </div>
+</body>
+</html>
