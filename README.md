@@ -4,16 +4,16 @@ Marketing webpage for [Dave IT Guy](https://pypi.org/project/dave-it-guy/) — d
 
 ## What’s in this repo
 
-- **`index.html`** — Single-page marketing site: hero, quick start, features, commands, pricing, footer.
+- **`docs/`** — GitHub Pages site. **`docs/index.html`** is the single-page marketing site: hero, quick start, features, commands, pricing, footer.
 - **`instruction.txt`** — Original brief for the page.
 
 ## GitHub Pages
 
-The site is served from **`index.html`** at the repo root. To publish it on GitHub Pages:
+The site is in the **`docs/`** folder (standard GitHub Pages layout). To publish:
 
 1. Open the repo **Settings** → **Pages**.
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-3. Choose **Branch:** `main`, **Folder:** `/ (root)`.
+3. Choose **Branch:** `main`, **Folder:** **`/docs`**.
 4. Click **Save**.
 
 The site will be available at **https://neurogaminglab.github.io/Dave-IT-guy/**.
@@ -23,14 +23,14 @@ The site will be available at **https://neurogaminglab.github.io/Dave-IT-guy/**.
 Open the page in a browser:
 
 ```bash
-open index.html
+open docs/index.html
 ```
 
-Or serve with a local server:
+Or serve from the repo root (so paths match production):
 
 ```bash
 python3 -m http.server 8000
-# open http://localhost:8000
+# open http://localhost:8000/docs/
 ```
 
 ## Links
