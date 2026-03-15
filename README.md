@@ -7,6 +7,17 @@ Marketing webpage for [Dave IT Guy](https://pypi.org/project/dave-it-guy/) — d
 - **`index.html`** — Single-page marketing site: hero, quick start, features, commands, pricing, footer.
 - **`instruction.txt`** — Original brief for the page.
 
+## GitHub Pages
+
+The site is served from **`index.html`** at the repo root. To publish it on GitHub Pages:
+
+1. Open the repo **Settings** → **Pages**.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Choose **Branch:** `main`, **Folder:** `/ (root)`.
+4. Click **Save**.
+
+The site will be available at **https://neurogaminglab.github.io/Dave-IT-guy/**.
+
 ## View locally
 
 Open the page in a browser:
