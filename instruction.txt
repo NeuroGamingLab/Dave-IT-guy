@@ -1,4 +1,0 @@
-Objective: create marketing webpage for Dave-IT-guy https://pypi.org/project/dave-it-guy/ with similar theme for neurogaminglab
-
-https://neurogaminglab.github.io/Neuro-Adaptive-Robotron-ML/
-
