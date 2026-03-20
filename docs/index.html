@@ -144,6 +144,14 @@
       margin-bottom: 0;
     }
 
+    .arch-img {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: block;
+      margin: 1rem 0 0;
+    }
+
     /* CTAs */
     .ctas {
       display: flex;
@@ -294,14 +302,13 @@
         One command spins up OpenClaw with Ollama and Qdrant—fully containerized. No host installs, no config archaeology. Run locally or ship to the cloud. Same stack, anywhere.
       </p>
       <div class="pills">
-        <span class="pill accent">AI-Assistant</span>
-        <span class="pill accent">Docker-Containerization</span>
+        <span class="pill accent">MasterClaw</span>
+        <span class="pill accent">Sub-Agents</span>
         <span class="pill accent">OpenClaw</span>
         <span class="pill accent">Ollama</span>
         <span class="pill accent">Qdrant</span>
-        <span class="pill accent">Anthropic-LLM</span>
-        <span class="pill accent">OpenAI-LLM</span>
-        <span class="pill accent">Rag-Retrieval</span>
+        <span class="pill accent">Orchestration</span>
+        <span class="pill accent">RAG</span>
       </div>
     </div>
 
@@ -310,8 +317,13 @@
         One command spins up <strong>OpenClaw</strong> with <strong>Ollama</strong> and <strong>Qdrant</strong>—fully containerized. No host installs, no config archaeology. Run locally or ship to the cloud. Same stack, anywhere.
       </p>
       <p>
-        Set your Anthropic API key when prompted (or add it later); Ollama is the fallback for local-only use. Everything runs in Docker. Nothing on your host.
+        <strong>Introducing Dave the MasterClaw:</strong> a recursive orchestrator that can spawn specialized OpenClaw runtimes on demand. The TUI can act as a parent agent delegating work to sub-agents, each with its own execution lifecycle.
       </p>
+      <img
+        class="arch-img"
+        src="https://raw.githubusercontent.com/NeuroGamingLab/Dave-IT-guy/main/dave-the-masterClaw-architecture-small.png"
+        alt="Dave the MasterClaw architecture"
+      />
     </div>
 
     <div class="ctas">
@@ -335,11 +347,14 @@
     <section>
       <h2>What You Get</h2>
       <ul class="features">
-        <li><strong>OpenClaw</strong> — AI agent gateway and TUI</li>
-        <li><strong>Ollama</strong> — local LLMs (Llama, Mistral, etc.)</li>
-        <li><strong>Qdrant</strong> — vector memory</li>
+        <li><strong>OpenClaw (main runtime)</strong> — AI agent gateway, tools, and TUI</li>
+        <li><strong>MasterClaw (external orchestrator)</strong> — launches and coordinates sub-agent jobs</li>
+        <li><strong>Enhanced terminal UI</strong> — <code>masterclaw-tui</code> to create and manage sub-agents</li>
+        <li><strong>Multi-instance execution</strong> — lightweight workers or full OpenClaw sub-agents per task</li>
+        <li><strong>Ollama</strong> — local/shared model backend for workers and fallback model path</li>
+        <li><strong>Qdrant</strong> — shared vector memory across main and sub-agent flows</li>
       </ul>
-      <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0.5rem 0 0;">Everything runs in Docker Containerization. Nothing on your host.</p>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0.5rem 0 0;">Everything runs in Docker. Nothing on your host.</p>
     </section>
 
     <section>
@@ -347,8 +362,12 @@
       <div class="code-block">
         <span class="cmd">dave-it-guy list</span>              <span class="comment"># Available stacks</span><br />
         <span class="cmd">dave-it-guy deploy openclaw</span>   <span class="comment"># Deploy</span><br />
+        <span class="cmd">dave-it-guy masterclaw-tui</span>    <span class="comment"># Launch enhanced terminal UI</span><br />
         <span class="cmd">dave-it-guy status openclaw</span>   <span class="comment"># Status</span><br />
         <span class="cmd">dave-it-guy logs openclaw</span>     <span class="comment"># Logs</span><br />
+        <span class="cmd">dave-it-guy stop openclaw</span>     <span class="comment"># Stop stack (preserve data)</span><br />
+        <span class="cmd">dave-it-guy destroy openclaw</span>  <span class="comment"># Remove stack</span><br />
+        <span class="cmd">dave-it-guy version</span>           <span class="comment"># CLI version</span><br />
         <span class="cmd">dave-it-guy doctor</span>            <span class="comment"># Diagnose issues</span>
       </div>
     </section>
