@@ -10,7 +10,7 @@ Dave IT Guy delivers a **fully containerized** stack with **OpenClaw as its core
 
 `dave-it-guy` now expands into **dave-the-MasterClaw**: a recursive orchestrator with one control plane that can spawn specialized OpenClaw runtimes on demand. The TUI can act as a parent agent that delegates work to child agents, each running as an independent OpenClaw container.
 
-![Dave the MasterClaw architecture](./dave-the-masterClaw-architecture-small.png)
+![Dave the MasterClaw architecture](docs/dave-the-masterClaw-architecture3-small.png)
 
 ### Quick Start (from PyPI)
 
@@ -25,7 +25,7 @@ Then open the AI assistant:
 docker exec -it dave-it-guy-openclaw openclaw tui
 ```
 
-**Gateway:** `http://localhost:18789` · **Qdrant:** `http://localhost:6333/`
+**OpenClaw (gateway):** `http://localhost:18789` · **MasterClaw (API):** `http://localhost:8090` · **Qdrant:** `http://localhost:6333/`
 
 ### Run the CLI from Docker (localhost)
 
