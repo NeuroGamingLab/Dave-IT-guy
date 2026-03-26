@@ -8,9 +8,9 @@ Dave IT Guy delivers a **fully containerized** stack with **OpenClaw as its core
 
 **From single assistant to self-orchestrating system.**
 
-`dave-it-guy` now expands into **dave-the-MasterClaw**: a recursive orchestrator with one control plane that can spawn specialized OpenClaw runtimes on demand. The TUI can act as a parent agent that delegates work to child agents, each running as an independent OpenClaw container.
+`dave-it-guy` expands into **dave-the-MasterClaw**: an **agent runtime + orchestrator**. Instead of a single assistant session, you get a system that can **launch goal-driven jobs**, **use tools**, and **fan out** to multiple sub-agents (lightweight workers or full OpenClaw containers) — all without giving the main agent direct Docker control.
 
-![Dave the MasterClaw architecture](docs/dave-the-masterClaw-architecture3-small.png)
+![Dave the MasterClaw architecture](docs/dave-the-masterClaw-architecture4-small.png)
 
 ### Quick Start (from PyPI)
 
@@ -49,12 +49,11 @@ On Windows (Docker Desktop), use `-v //var/run/docker.sock:/var/run/docker.sock`
 
 ### What you get
 
-- **OpenClaw (main runtime)** — AI agent gateway, tools, and TUI
-- **MasterClaw (external orchestrator)** — launches and coordinates sub-agent jobs
-- **Enhanced terminal UI** — `masterclaw-tui` to create, monitor, and manage sub-agents
-- **Multi-instance execution** — run lightweight workers or full OpenClaw sub-agents per task
-- **Ollama** — local/shared model backend for workers and fallback model path
-- **Qdrant** — shared vector memory across main and sub-agent flows
+- **Agent runtime (OpenClaw)** — tool-using agent gateway + TUI (the “brain” that executes tasks)
+- **Orchestrator (MasterClaw)** — a control plane that turns requests into **isolated jobs** and manages lifecycle
+- **Multi-agent fan-out** — spin up **lightweight workers** or **full OpenClaw sub-agents** per task (1 : n)
+- **Operational UX** — `masterclaw-tui` to create jobs, poll status/results, and clean up sub-agents
+- **Shared AI backbone** — **Ollama** (local models / worker backend) + **Qdrant** (shared vector memory)
 
 ### Commands
 

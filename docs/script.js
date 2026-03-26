@@ -3,6 +3,7 @@
   const commandEl = document.getElementById('typed-command');
   const cursorEl = document.getElementById('cursor');
   const outputEl = document.getElementById('terminal-output');
+  if (!commandEl || !cursorEl || !outputEl) return;
 
   const command = 'dave-it-guy deploy openclaw';
   const outputLines = [
